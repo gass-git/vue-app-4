@@ -1,14 +1,5 @@
-<template>
-    <td>
-        {{ title }}
-    </td>
-    <td>
-        <img v-bind:src="thumbnail" />
-    </td>
-</template>
-
 <script setup>
-import {defineProps,ref, watchEffect} from 'vue'
+    import {defineProps,ref, watchEffect} from 'vue'
 
     const props = defineProps({ result: Object })
     const title = ref('')
@@ -21,6 +12,15 @@ import {defineProps,ref, watchEffect} from 'vue'
         thumbnail.value = data.thumbnails.medium.url
     })
 </script>
+
+<template>
+    <td>
+        {{ title }}
+    </td>
+    <td>
+        <img v-bind:src="thumbnail" />
+    </td>
+</template>
 
 <style scope>
     td{

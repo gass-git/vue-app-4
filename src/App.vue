@@ -3,11 +3,13 @@
     import {ref} from 'vue'
     import SearchBar from './components/SearchBar.vue'
     import VideoList from './components/VideoList.vue'
+    import VideoSelected from './components/VideoSelected.vue'
 
     const API_KEY = 'AIzaSyDXQ4C8gbVIJi5rIp1nlQZAR3BHsE6LbTI'
     const API_URL = 'https://www.googleapis.com/youtube/v3/search'
     const inputText = ref('')
     const results = ref([])
+    const selectedVideoId = ref('')
 
     function updateInputText(e){
         inputText.value = e.target.value
@@ -16,6 +18,10 @@
     function handleSubmit(){
         if(inputText.value !== '') fetchYoutubeData()
         else results.value = []
+    }
+
+    function handleSelection(videoId){
+        selectedVideoId.value = videoId
     }
 
     function fetchYoutubeData(){    
@@ -40,7 +46,11 @@
             @updateInputText="updateInputText"
             @handleSubmit="handleSubmit"
         />
-        <VideoList v-bind:results="results" />
+        <VideoSelected v-bind:selectedVideoId="selectedVideoId"/>
+        <VideoList 
+            v-bind:results="results" 
+            @handleSelection="handleSelection" 
+        />
     </section>
 </template>
 

@@ -1,6 +1,6 @@
 <script setup>
-import {defineProps} from 'vue'
-import VideoListItem from './VideoListItem.vue'
+    import {defineProps} from 'vue'
+    import VideoListItem from './VideoListItem.vue'
 
     const props = defineProps({results: Array})
 </script>
@@ -9,6 +9,7 @@ import VideoListItem from './VideoListItem.vue'
     <table v-if="results.length > 0">
         <tr v-for="result in props.results" 
             v-bind:key="result.id.videoId"
+            @click="$emit('handleSelection', result.id.videoId)"
         >
             <VideoListItem v-bind:result="result" />
         </tr>
