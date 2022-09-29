@@ -23,4 +23,12 @@ import {defineProps,ref, watchEffect} from 'vue'
 </script>
 
 <style scope>
+    td{
+        padding:20px 10px 20px 10px;
+        border-bottom: 1px solid rgb(219, 219, 219);
+        border-top: 1px solid rgb(219, 219, 219);
+    }
+    img{
+        border-radius:10px;
+    }
 </style>

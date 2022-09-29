@@ -17,11 +17,14 @@ import VideoListItem from './VideoListItem.vue'
 
 <style scoped>
     table{
-        margin-top: 20px;
-        border:1px solid black;
+        border-collapse: collapse;
+        width:100vw;
+        max-width: 640px;
+        min-width: 300px;
+        margin:30px 0 50px 0; 
     }
-    td{
-        border:1px solid grey;
-        padding:5px 15px 5px 15px;
+    tr:hover{
+        cursor:pointer;
+        background:#f1f1f1;
     }
 </style>
